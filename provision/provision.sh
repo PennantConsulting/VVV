@@ -152,6 +152,10 @@ profile_setup() {
   fi
 }
 
+solr_setup() {
+  cp "/srv/config/solr/solr.xml" "/opt/solr/server/solr/solr.xml"
+}
+
 package_check() {
   # Loop through each of our packages that should be installed on the system. If
   # not yet installed, it should be added to the array of packages to install.
@@ -777,6 +781,7 @@ network_check
 # Profile_setup
 echo "Bash profile setup and directories."
 profile_setup
+solr_setup
 
 network_check
 # Package and Tools Install
